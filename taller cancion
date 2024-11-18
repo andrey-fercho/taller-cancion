@@ -1,0 +1,31 @@
+package cancion;
+
+
+public class cancion {
+    private String titulo;
+    private String artista;
+
+    public cancion(String titulo, String artista) {
+        this.titulo = titulo;
+        this.artista = artista;
+    }
+
+    public String getTirulo() {
+        return titulo;
+    }
+
+    public void setTirulo(String tirulo) {
+        this.titulo = tirulo;
+    }
+
+    public String getArtista() {
+        return artista;
+    }
+
+    public void setArtista(String artista) {
+        this.artista = artista;
+    }
+    public void mostarcancio(){
+        System.out.println("titulo"+titulo+"artista"+artista);
+    }
+}
