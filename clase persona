@@ -1,0 +1,57 @@
+package cancion;
+
+
+public class persona {
+    private String nombre;
+    private int cedula;
+    private String fechadenacimiento;
+    private String correo;
+    private String ciudadrecidencia;
+    private String ciudadorigen;
+    private cancion[]canciones=new cancion[3];
+    private int indice;
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setCedula(int cedula) {
+        this.cedula = cedula;
+    }
+
+    public void setFechadenacimiento(String fechadenacimiento) {
+        this.fechadenacimiento = fechadenacimiento;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public void setCiudadrecidencia(String ciudadrecidencia) {
+        this.ciudadrecidencia = ciudadrecidencia;
+    }
+
+    public void setCiudadorigen(String ciudadorigen) {
+        this.ciudadorigen = ciudadorigen;
+    }
+    public void agregarcancion(cancion cancion){
+        if(indice < canciones.length){
+            canciones[indice++]=cancion;
+        }
+    }
+ public void mostarinformacion(){
+     System.out.println("nombre"+nombre);
+     System.out.println("cedula"+cedula);
+     System.out.println("fecha de nacimiento"+fechadenacimiento);
+     System.out.println("correo electronico"+correo);
+     System.out.println("ciudad de recidencia"+ciudadrecidencia);
+     System.out.println("ciudadn de origen"+ciudadorigen);
+     System.out.println("canciones favoritas :");
+     for(cancion cancion : canciones){
+         if(cancion !=null){
+             cancion.mostarcancio();
+         }
+     }
+ }
+ 
+}
