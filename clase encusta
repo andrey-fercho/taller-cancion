@@ -1,0 +1,74 @@
+package cancion;
+
+import java.util.Scanner;
+
+
+public class encuesta {
+ private static persona[] personas=new persona[6];
+         private static int contador=0;
+    public static void agregarpersona(){
+        if(contador<personas.length){
+            Scanner kl= new Scanner(System.in);
+            persona persona = new persona();
+            System.out.println("nombre:");
+            persona.setNombre(kl.nextLine());
+            System.out.println("cedula");
+            persona.setCedula(kl.nextInt());
+            System.out.println("fecha de nacimiento:");
+            persona.setFechadenacimiento(kl.nextLine());
+            System.out.println("correo");
+            persona.setCorreo(kl.nextLine());
+            System.out.println("ciudad de origen :");
+            persona.setCiudadorigen(kl.nextLine());
+            System.out.println("cuidad de recidencia");
+            persona.setCiudadrecidencia(kl.nextLine());
+            for( int i=0; i< 3;i++){
+                System.out.println("tituilo de la cancion"+(i+1)+":");
+                String titulo=kl.nextLine();
+                System.out.println("el artista es "+(i+1)+":");
+                String artista=kl.nextLine();
+                cancion cancion =new cancion(titulo,artista);
+                persona.agregarcancion(cancion);
+            }
+            personas[contador++]=persona;
+        }else{
+            System.out.println("no se puden agreagar mas personas");
+        }
+    }
+    public static void mostarinformacionperosnal(int posicion){
+        if(posicion>0&&posicion<=contador){
+            personas[posicion-1].mostarinformacion();
+        }else{
+            System.out.println("posicion no validad");
+        }
+        
+    }
+    public static void main(String[]args){
+        Scanner kl = new Scanner(System.in);
+        int opcion;
+        do{
+            System.out.println("menu");
+            System.out.println("1: agregar persona");
+            System.out.println("2: mostrar informacion personal");
+            System.out.println("3: salir");
+            System.out.println("selecione una opcion");
+            opcion=kl.nextByte();
+            switch(opcion){
+                case 1:
+                    encuesta.agregarpersona();
+                    break;
+                case 2:
+                    System.out.println("ingrese la posicion ");
+                    int posicon =kl.nextInt(opcion);
+                    encuesta.mostarinformacionperosnal(posicon);
+                    break;
+                case 3:
+                    System.out.println("salio");
+                    break;
+                default:
+                    System.out.println("opcion invalida");
+                    System.out.println("intentar de nuevo");
+            }
+        }while(opcion!=3);
+    }
+}
